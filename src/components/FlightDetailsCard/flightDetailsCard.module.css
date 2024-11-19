@@ -1,0 +1,61 @@
+/* flightDetailsCard.module.css */
+
+/* Container for the entire FlightDetailsCard */
+.cardContainer {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Each flight detail item (key-value pair) */
+.detailsRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detailsRow:last-child {
+  border-bottom: none; /* Remove the border from the last row */
+}
+
+/* Label for each detail (e.g., "ID", "Code") */
+.detailsLabel {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Value for each detail (e.g., flight code, capacity) */
+.detailsValue {
+  color: #555;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .cardContainer {
+    padding: 12px;
+    width: 100%;
+  }
+
+  .detailsRow {
+    flex-direction: column;
+    padding: 8px 0;
+  }
+
+  .detailsLabel {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .detailsValue {
+    font-size: 12px;
+    text-align: left;
+  }
+}

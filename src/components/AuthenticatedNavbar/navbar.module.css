@@ -1,0 +1,104 @@
+/* Base styles for the navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #ff9900;
+}
+
+.nav div {
+  display: flex;
+  align-items: center;
+}
+
+.nav .user-name {
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* .nav button {
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav button:hover {
+  background-color: #e68900;
+} */
+
+/* Responsive styles for tablets and small screens */
+@media (max-width: 768px) {
+  .nav {
+    /* justify-content: center; */
+    text-align: center; /* Center the navbar links and button */
+    padding: 10px 15px; /* Reduced padding */
+  }
+
+  .nav a {
+    margin-right: 0;
+    margin-bottom: 10px; /* Add spacing between links vertically */
+    font-size: 14px; /* Smaller font size for links */
+  }
+
+  /* Stack links and buttons vertically */
+  .nav div {
+    /* flex-direction: column; */
+    margin-top: 10px;
+  }
+
+  .nav .user-name {
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  /* .nav button {
+    font-size: 16px;
+    padding: 12px 24px;
+  } */
+}
+
+/* Even smaller screens (smartphones and smaller devices) */
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+    padding: 10px 15px;
+  }
+
+  .nav a {
+    font-size: 12px; /* Smaller font size for mobile screens */
+    margin-bottom: 8px; /* Less margin between links */
+  }
+
+  .nav .user-name {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  /* 
+  .nav button {
+    font-size: 14px;
+    padding: 10px 20px;
+  } */
+}

@@ -1,0 +1,77 @@
+/* pagination.module.css */
+
+/* Main container for pagination controls */
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.actionButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actionButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pageSizeDropdown {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add hover effect to buttons */
+.actionButton:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile-first design adjustments */
+@media (max-width: 768px) {
+  .paginationContainer {
+    gap: 12px; /* Smaller gap on smaller screens */
+    padding: 8px;
+    font-size: 12px; /* Smaller text size */
+  }
+
+  .actionButton {
+    padding: 6px 12px; /* Smaller button size */
+    font-size: 12px; /* Smaller text in buttons */
+  }
+
+  .pageSizeDropdown {
+    font-size: 12px; /* Smaller dropdown text */
+    padding: 6px 10px; /* Smaller padding for dropdown */
+  }
+}
+
+/* Mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .paginationContainer {
+    gap: 8px; /* Even smaller gap on small mobile devices */
+    padding: 6px;
+  }
+
+  .actionButton {
+    padding: 6px 10px; /* Further reduce button size */
+    font-size: 12px;
+  }
+
+  .pageSizeDropdown {
+    font-size: 12px;
+    padding: 6px 8px; /* Smaller padding for dropdown */
+  }
+}

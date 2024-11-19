@@ -1,0 +1,51 @@
+/* flightFilter.module.css */
+
+/* Container for the filter form */
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between input fields */
+  padding: 16px;
+  max-width: 500px;
+  /* margin: 0 auto;  */
+}
+
+.filterContainer label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.filterContainer input {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .filterContainer {
+    padding: 12px; /* Less padding on smaller screens */
+  }
+
+  .filterContainer input {
+    font-size: 16px; /* Make the font size larger for mobile screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .filterContainer {
+    padding: 8px; /* Even less padding for very small screens */
+  }
+
+  .filterContainer label {
+    font-size: 14px; /* Reduce font size for small screens */
+  }
+
+  .filterContainer input {
+    font-size: 14px; /* Adjust input font size */
+  }
+}

@@ -1,0 +1,96 @@
+/* table.module.css */
+
+/* Main container for the table */
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-x: auto; /* Allow horizontal scroll on small screens */
+  padding: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Ensures equal column widths */
+}
+
+.tableHead {
+  background-color: #f4f4f4;
+}
+
+.tableCell {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.tableRow {
+  transition: background-color 0.3s;
+}
+
+.tableRow:hover {
+  background-color: #f1f1f1;
+}
+
+.tableBody {
+  background-color: #fff;
+}
+
+/* Hide overflowed columns and add horizontal scroll on smaller screens */
+@media (max-width: 768px) {
+  .table {
+    width: 100%;
+    display: block;
+    overflow-x: auto; /* Make table scrollable horizontally */
+  }
+
+  .tableCell {
+    font-size: 12px; /* Smaller font size on smaller screens */
+    padding: 8px;
+  }
+
+  .tableHead {
+    display: none; /* Hide header on small screens for better readability */
+  }
+
+  .tableRow {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tableRow td {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .tableRow td::before {
+    content: attr(data-label); /* Add column names dynamically */
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+  }
+
+  /* Make pagination controls mobile-friendly */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableCell {
+    font-size: 10px; /* Further reduce font size for small screens */
+  }
+
+  .pagination {
+    font-size: 12px;
+    flex-direction: column; /* Stack pagination items vertically on mobile */
+  }
+}

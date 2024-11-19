@@ -1,0 +1,102 @@
+/* deleteFlightConfirmationModal.module.css */
+
+/* Modal container styling */
+.modalContent {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  /* position: relative; */
+  margin: auto;
+}
+
+/* Title or message inside modal */
+.modalMessage {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Paragraph for deletion message */
+.deleteMessage {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Button wrapper to display buttons in a row with space in between */
+.buttonWrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Basic button styling for No and Yes buttons */
+.modalButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Button color variations */
+.yesButton {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+}
+
+.noButton {
+  background-color: #d9d9d9;
+  color: #333;
+  border: none;
+}
+
+/* When the flight is being deleted, show a loading message */
+.deletingMessage {
+  font-size: 16px;
+  color: #f56c6c;
+  font-weight: 600;
+}
+
+/* Responsive design for smaller screens (mobile, tablet) */
+@media (max-width: 768px) {
+  /* Modal content padding for smaller screens */
+  .modalContent {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  /* Adjust message text size for smaller screens */
+  .modalMessage {
+    font-size: 16px;
+  }
+
+  /* Stack the buttons vertically on small screens */
+  .buttonWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Adjust button sizes for mobile */
+  .modalButton {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .yesButton {
+    background-color: #ff4d4f;
+    color: white;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .noButton {
+    background-color: #d9d9d9;
+    color: #333;
+    padding: 12px;
+  }
+}
