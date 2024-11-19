@@ -1,24 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import FlightFilter from '../../components/FlightFilter';
-import { Table } from '../../lib';
-import useQuery from '../../hooks/useQuery';
+import { Alert, Table } from '../../lib';
+// import useQuery from '../../hooks/useQuery';
 import { getFlights } from '../../services/flightServices';
 import useDebounce from '../../hooks/useDebounce';
 import Spinner from '../../lib/Spinner';
-
-interface FlightDataResources {
-  id: string;
-  code: string;
-  capacity: number;
-  departureDate: string;
-  status: string;
-}
-
-interface FlightsData {
-  resources: FlightDataResources[];
-  count: number;
-  total: number;
-}
+import { useQuery } from '@tanstack/react-query';
 
 const Flights = () => {
   const [searchParams, setSearchParams] = useState<{
@@ -48,7 +35,15 @@ const Flights = () => {
     data: flights,
     isLoading: isFlightsLoading,
     error: flightsError,
-  } = useQuery<FlightsData>(getFlights, searchParams);
+  } = useQuery({
+    queryKey: [
+      'all-flights',
+      searchParams.size,
+      searchParams.page,
+      inputCodeForFilter,
+    ],
+    queryFn: () => getFlights(searchParams),
+  });
 
   const flightsTableColumn = useMemo(
     () => [
@@ -80,6 +75,7 @@ const Flights = () => {
     <div>
       <FlightFilter handleCodeChange={handleFlightFilterChangeChange} />
       {isFlightsLoading && <Spinner />}
+      {flightsError && <Alert>{flightsError.message}</Alert>}
       {!isFlightsLoading && flights && (
         <div>
           <Table
@@ -93,7 +89,6 @@ const Flights = () => {
           />
         </div>
       )}
-      {flightsError && <p>{flightsError}</p>}
     </div>
   );
 };

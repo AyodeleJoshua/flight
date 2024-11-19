@@ -3,15 +3,13 @@ import styles from './alert.module.css';
 
 interface AlertProps {
   children: ReactNode;
+  success?: boolean;
 }
 
-const Alert = ({ children }: AlertProps) => {
+const Alert = ({ children, success }: AlertProps) => {
   return (
-    <div className={styles.alert}>
+    <div className={`${styles.alert} ${success ? styles.successalert : ''}`}>
       <span>{children}</span>
-      <button className={styles.closeButton} aria-label="Close">
-        ×
-      </button>
     </div>
   );
 };

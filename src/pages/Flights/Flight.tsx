@@ -1,10 +1,6 @@
 import { useParams } from 'react-router-dom';
-import useQuery from '../../hooks/useQuery';
 import { getFlightDetails, updateFlight } from '../../services/flightServices';
-import {
-  ApiResponseError,
-  FlightDetailsSuccessfulResponseType,
-} from '../../utils/types.d';
+import { ApiResponseError } from '../../utils/types.d';
 import Button from '../../lib/Button';
 import { useState } from 'react';
 import EditFlightForm from '../../components/EditFlightForm';
@@ -13,18 +9,19 @@ import DeleteFlightConfirmationModal from '../../components/modals/DeleteFlightC
 import FlightDetailsCard from '../../components/FlightDetailsCard';
 import styles from './flights.module.css';
 import Spinner from '../../lib/Spinner';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 const Flight = () => {
   const { flightId } = useParams();
-  const [editCount, setEditCount] = useState(1);
-  let {
+  const {
     data: flightDetails,
     isLoading: isLoadingFlightDetails,
     error: flightDetailsError,
-  } = useQuery<FlightDetailsSuccessfulResponseType>(
-    () => getFlightDetails(flightId as string),
-    { a: editCount },
-  );
+  } = useQuery({
+    queryKey: ['flight', flightId],
+    queryFn: () => getFlightDetails(flightId as string),
+  });
+  const queryClient = useQueryClient();
   const [responseError, setResponseError] = useState('');
   const [isEditSuccessful, setIsEditSuccessful] = useState(false);
   const [deleteError, setDeleteError] = useState('');
@@ -35,14 +32,14 @@ const Flight = () => {
 
   const [showEditFlightForm, setShowEditFlightForm] = useState(false);
 
-  const handleFormSubmit = async (
+  const handleEditFormSubmit = async (
     values: any,
     setSubmitting: (isSubmitting: boolean) => void,
   ) => {
     setSubmitting(true);
     try {
       await updateFlight(flightId as string, values);
-      setEditCount(editCount + 1);
+      queryClient.invalidateQueries({ queryKey: ['flight'] });
       setIsEditSuccessful(true);
       setShowEditFlightForm(false);
     } catch (error) {
@@ -55,9 +52,12 @@ const Flight = () => {
 
   return (
     <div>
-      {(isEditSuccessful || deleteError) && (
-        <Alert>{deleteError || 'Flight update successful'}</Alert>
+      {deleteError && <Alert>{deleteError}</Alert>}
+
+      {isEditSuccessful && !showEditFlightForm && (
+        <Alert success>Flight update successful</Alert>
       )}
+
       {isLoadingFlightDetails && <Spinner />}
       {!isLoadingFlightDetails && flightDetails && !showEditFlightForm && (
         <>
@@ -75,12 +75,12 @@ const Flight = () => {
           </div>
         </>
       )}
-      {flightDetailsError && <div>{flightDetailsError}</div>}
+      {flightDetailsError && <div>{flightDetailsError.message}</div>}
 
       {flightDetails && showEditFlightForm && (
         <EditFlightForm
           flightDetails={flightDetails}
-          onFormSubmit={handleFormSubmit}
+          onFormSubmit={handleEditFormSubmit}
           responseError={responseError}
         />
       )}

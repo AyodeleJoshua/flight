@@ -1,9 +1,6 @@
-/* alert.module.css */
-
-/* Base alert styling */
 .alert {
-  background-color: #f8d7da; /* Light red background for alert */
-  color: #721c24; /* Dark red text color */
+  background-color: #f8d7da;
+  color: #721c24;
   border: 1px solid #f5c6cb;
   border-radius: 4px;
   padding: 16px;
@@ -18,37 +15,22 @@
   word-wrap: break-word;
 }
 
-/* Optional Close Button Styling */
-.closeButton {
-  background: none;
-  border: none;
-  color: #721c24;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 10px;
+.successalert {
+  background-color: #d3f1cd;
+  color: #1b6107;
+  border: 1px solid #d3f1cd;
 }
 
-/* Mobile-first responsiveness */
 @media (max-width: 768px) {
   .alert {
-    font-size: 14px; /* Smaller font size on tablets */
-    padding: 12px 16px; /* Reduce padding on smaller screens */
-  }
-
-  .closeButton {
-    font-size: 16px; /* Smaller close button text */
+    font-size: 14px;
+    padding: 12px 16px;
   }
 }
 
-/* For very small screens (mobile phones) */
 @media (max-width: 480px) {
   .alert {
-    font-size: 12px; /* Even smaller font size on mobile */
-    padding: 10px 12px; /* Further reduce padding */
-  }
-
-  .closeButton {
-    font-size: 14px; /* Even smaller close button on small mobile devices */
+    font-size: 12px;
+    padding: 10px 12px;
   }
 }

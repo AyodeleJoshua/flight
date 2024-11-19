@@ -4,6 +4,7 @@ import TextInput from '../../lib/TextInput';
 import { Alert, Datepicker } from '../../lib';
 import Button from '../../lib/Button';
 import { NewFlightSchema } from '../../utils/validationSchema';
+import { useState } from 'react';
 
 interface EditFlightFormProps {
   flightDetails: FlightDetailsSuccessfulResponseType;
@@ -20,17 +21,19 @@ const EditFlightForm = ({
   responseError,
 }: EditFlightFormProps) => {
   const { code, capacity, departureDate } = flightDetails;
+  const [isSubmittingEditForm, setIsSubmittingEditForm] = useState(false);
+
   return (
     <div>
       {responseError && <Alert>{responseError}</Alert>}
       <Formik
         initialValues={{ code, capacity, departureDate }}
         validationSchema={NewFlightSchema}
-        onSubmit={async (values, { setSubmitting }) => {
-          onFormSubmit(values, setSubmitting);
+        onSubmit={(values) => {
+          onFormSubmit(values, setIsSubmittingEditForm);
         }}
       >
-        {({ values, errors, touched, isSubmitting, handleChange, isValid }) => (
+        {({ values, errors, touched, handleChange }) => (
           <Form>
             <TextInput
               id="code"
@@ -76,14 +79,11 @@ const EditFlightForm = ({
 
             <Button
               type="submit"
-              disabled={
-                isSubmitting ||
-                !values.capacity ||
-                !values.code ||
-                !values.departureDate ||
-                !isValid
-              }
-              loading={isSubmitting}
+              loading={isSubmittingEditForm}
+              disabled={isSubmittingEditForm}
+              //   onClick={() => {
+              //     setIsSubmittingEditForm(true);
+              //   }}
             >
               Update Flight
             </Button>

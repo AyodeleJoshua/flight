@@ -7,10 +7,12 @@ import TextInput from '../../lib/TextInput';
 import Button from '../../lib/Button';
 import { NewFlightSchema } from '../../utils/validationSchema';
 import { createFlight } from '../../services/flightServices';
+import { useQueryClient } from '@tanstack/react-query';
 
 const NewFlight = () => {
   const [responseError, setResponseError] = useState('');
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   return (
     <div>
@@ -23,6 +25,7 @@ const NewFlight = () => {
             setSubmitting(true);
             try {
               await createFlight(values);
+              queryClient.invalidateQueries({ queryKey: ['all-flights'] });
               navigate('/flights');
             } catch (error) {
               const responseError = error as ApiResponseError;
@@ -32,14 +35,7 @@ const NewFlight = () => {
             }
           }}
         >
-          {({
-            values,
-            errors,
-            touched,
-            isSubmitting,
-            handleChange,
-            isValid,
-          }) => (
+          {({ values, errors, touched, isSubmitting, handleChange }) => (
             <Form>
               <TextInput
                 id="code"
@@ -82,17 +78,7 @@ const NewFlight = () => {
                 )}
               </Field>
 
-              <Button
-                type="submit"
-                disabled={
-                  isSubmitting ||
-                  !values.capacity ||
-                  !values.code ||
-                  !values.departureDate ||
-                  !isValid
-                }
-                loading={isSubmitting}
-              >
+              <Button type="submit" loading={isSubmitting}>
                 Create Flight
               </Button>
             </Form>
