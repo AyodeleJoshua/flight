@@ -36,6 +36,7 @@
 
 .tableBody {
   background-color: #fff;
+  display: table-row-group;
 }
 
 /* Hide overflowed columns and add horizontal scroll on smaller screens */
@@ -87,6 +88,10 @@
 @media (max-width: 480px) {
   .tableCell {
     font-size: 10px; /* Further reduce font size for small screens */
+  }
+
+  .tableBody {
+    display: block;
   }
 
   .pagination {
