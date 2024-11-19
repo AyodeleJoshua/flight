@@ -8,3 +8,8 @@ This is a simple web app that seeks to implement basic crud operations around fl
 - Clone this repocitory
 - Run npm install
 - Start local server on https://localhost:3000
+
+# Implementations not completed
+
+- E-2-E test
+- Unit test
