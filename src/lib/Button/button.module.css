@@ -1,6 +1,3 @@
-/* button.module.css */
-
-/* Base button style */
 .button {
   background-color: #007bff;
   color: white;
@@ -15,7 +12,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-width: 120px; /* Ensure a minimum width */
+  min-width: 120px;
   position: relative;
 }
 
@@ -24,7 +21,6 @@
   color: red;
 }
 
-/* Hover and focus effects */
 .button:hover {
   background-color: #0056b3;
 }
@@ -34,13 +30,11 @@
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
 }
 
-/* Disabled button style */
 .button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
 }
 
-/* Loading state */
 .button .loading {
   display: flex;
   align-items: center;
@@ -53,23 +47,21 @@
   font-size: 14px;
 }
 
-/* Mobile-first design adjustments */
 @media (max-width: 768px) {
   .button {
-    padding: 10px 20px; /* Reduce padding on smaller screens */
-    font-size: 14px; /* Smaller text size on tablets */
+    padding: 10px 20px;
+    font-size: 14px;
   }
 
   .button .loading::after {
-    font-size: 12px; /* Smaller loading text for small screens */
+    font-size: 12px;
   }
 }
 
-/* Small screens (max-width: 480px) */
 @media (max-width: 480px) {
   .button {
-    padding: 8px 16px; /* Further reduce padding on mobile */
-    font-size: 12px; /* Even smaller font size on mobile */
+    padding: 8px 16px;
+    font-size: 12px;
   }
 
   .button .loading::after {

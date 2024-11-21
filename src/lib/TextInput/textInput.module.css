@@ -1,13 +1,9 @@
-/* textinput.module.css */
-
-/* Base styles for the container */
 .textInputContainer {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px; /* Space between inputs */
+  margin-bottom: 16px;
 }
 
-/* Label styling */
 .textInputContainer label {
   font-size: 16px;
   color: #333;
@@ -15,7 +11,6 @@
   font-weight: 600;
 }
 
-/* Input field styling */
 .textInputContainer input {
   padding: 12px 16px;
   font-size: 16px;
@@ -23,51 +18,47 @@
   border-radius: 4px;
   outline: none;
   width: 100%;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  box-sizing: border-box;
   transition: border-color 0.2s ease-in-out;
 }
 
-/* Input focus state */
 .textInputContainer input:focus {
-  border-color: #007bff; /* Blue border on focus */
+  border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-/* Error message styling */
 .textInputContainer .error {
   color: #d9534f;
   font-size: 14px;
   margin-top: 4px;
 }
 
-/* Mobile-first responsiveness */
 @media (max-width: 768px) {
   .textInputContainer label {
-    font-size: 14px; /* Smaller font size for label on tablets */
+    font-size: 14px;
   }
 
   .textInputContainer input {
-    padding: 10px 14px; /* Slightly smaller padding on tablets */
-    font-size: 14px; /* Smaller font size for inputs */
+    padding: 10px 14px;
+    font-size: 14px;
   }
 
   .textInputContainer .error {
-    font-size: 12px; /* Smaller error message font size */
+    font-size: 12px;
   }
 }
 
-/* For very small screens (mobile phones) */
 @media (max-width: 480px) {
   .textInputContainer label {
-    font-size: 12px; /* Even smaller label font size on mobile */
+    font-size: 12px;
   }
 
   .textInputContainer input {
-    padding: 8px 12px; /* Reduce padding on mobile */
-    font-size: 12px; /* Smaller font size for inputs */
+    padding: 8px 12px;
+    font-size: 12px;
   }
 
   .textInputContainer .error {
-    font-size: 12px; /* Further reduce error message font size */
+    font-size: 12px;
   }
 }

@@ -1,6 +1,3 @@
-/* pagination.module.css */
-
-/* Main container for pagination controls */
 .paginationContainer {
   display: flex;
   justify-content: center;
@@ -34,44 +31,41 @@
   cursor: pointer;
 }
 
-/* Add hover effect to buttons */
 .actionButton:hover {
   background-color: #0056b3;
 }
 
-/* Mobile-first design adjustments */
 @media (max-width: 768px) {
   .paginationContainer {
-    gap: 12px; /* Smaller gap on smaller screens */
+    gap: 12px;
     padding: 8px;
-    font-size: 12px; /* Smaller text size */
+    font-size: 12px;
   }
 
   .actionButton {
-    padding: 6px 12px; /* Smaller button size */
-    font-size: 12px; /* Smaller text in buttons */
+    padding: 6px 12px;
+    font-size: 12px;
   }
 
   .pageSizeDropdown {
-    font-size: 12px; /* Smaller dropdown text */
-    padding: 6px 10px; /* Smaller padding for dropdown */
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }
 
-/* Mobile screens (max-width: 480px) */
 @media (max-width: 480px) {
   .paginationContainer {
-    gap: 8px; /* Even smaller gap on small mobile devices */
+    gap: 8px;
     padding: 6px;
   }
 
   .actionButton {
-    padding: 6px 10px; /* Further reduce button size */
+    padding: 6px 10px;
     font-size: 12px;
   }
 
   .pageSizeDropdown {
     font-size: 12px;
-    padding: 6px 8px; /* Smaller padding for dropdown */
+    padding: 6px 8px;
   }
 }

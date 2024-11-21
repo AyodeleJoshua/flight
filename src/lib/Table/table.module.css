@@ -1,18 +1,15 @@
-/* table.module.css */
-
-/* Main container for the table */
 .tableContainer {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  overflow-x: auto; /* Allow horizontal scroll on small screens */
+  overflow-x: auto;
   padding: 16px;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* Ensures equal column widths */
+  table-layout: fixed;
 }
 
 .tableHead {
@@ -39,21 +36,20 @@
   display: table-row-group;
 }
 
-/* Hide overflowed columns and add horizontal scroll on smaller screens */
 @media (max-width: 768px) {
   .table {
     width: 100%;
     display: block;
-    overflow-x: auto; /* Make table scrollable horizontally */
+    overflow-x: auto;
   }
 
   .tableCell {
-    font-size: 12px; /* Smaller font size on smaller screens */
+    font-size: 12px;
     padding: 8px;
   }
 
   .tableHead {
-    display: none; /* Hide header on small screens for better readability */
+    display: none;
   }
 
   .tableRow {
@@ -71,13 +67,12 @@
   }
 
   .tableRow td::before {
-    content: attr(data-label); /* Add column names dynamically */
+    content: attr(data-label);
     position: absolute;
     left: 10px;
     font-weight: bold;
   }
 
-  /* Make pagination controls mobile-friendly */
   .pagination {
     display: flex;
     justify-content: center;
@@ -87,7 +82,7 @@
 
 @media (max-width: 480px) {
   .tableCell {
-    font-size: 10px; /* Further reduce font size for small screens */
+    font-size: 10px;
   }
 
   .tableBody {
@@ -96,6 +91,6 @@
 
   .pagination {
     font-size: 12px;
-    flex-direction: column; /* Stack pagination items vertically on mobile */
+    flex-direction: column;
   }
 }
