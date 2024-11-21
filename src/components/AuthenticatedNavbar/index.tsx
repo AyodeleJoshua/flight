@@ -30,7 +30,6 @@ const AuthenticatedNavbar = () => {
             navigate('/auth/login');
             removeAllItemsFromLocalStorage();
           }}
-        //   className={styles.button}
         >
           Logout
         </Button>
