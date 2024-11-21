@@ -16,7 +16,7 @@ it('should have code and capacity input fields, flight departure date and create
 
 it('should show appropriate error when fields are not filled correctly', async () => {
   const user = userEvent.setup();
-  const { getByRole, getByText, debug } = render(<NewFlight />);
+  const { getByRole, getByText } = render(<NewFlight />);
   await user.click(getByText(/create flight/i));
   const codeErrorElement = getByText('Code is required');
   const capacityErrorElement = getByText('Capacity is required');
@@ -33,7 +33,6 @@ it('should show appropriate error when fields are not filled correctly', async (
   await user.type(codeTextField, 'qweddd');
   expect(codeErrorElement).not.toBeVisible();
   await user.type(codeTextField, 'qwedddad');
-  debug();
   expect(codeErrorElement).toHaveTextContent('Code must be exactly 6 letters');
   await user.type(capacityTextField, '22');
   expect(capacityErrorElement).not.toBeVisible();
