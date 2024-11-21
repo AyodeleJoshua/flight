@@ -11,6 +11,7 @@ import { setBulkItemsInLocalStorage } from '../../utils/localStorageOperations';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth';
 import actionTypes from '../../context/auth/actionTypes';
+import styles from './auth.module.css';
 
 const Register = () => {
   const { dispatch } = useAuth();
@@ -18,7 +19,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className={styles.authContainer}>
       {responseError && <Alert>{responseError}</Alert>}
       <Formik
         initialValues={{
@@ -65,7 +66,7 @@ const Register = () => {
           }
         }}
       >
-        {({ values, errors, touched, isSubmitting, handleChange, isValid }) => (
+        {({ values, errors, touched, isSubmitting, handleChange }) => (
           <Form>
             <TextInput
               id="name"
@@ -109,14 +110,7 @@ const Register = () => {
             />
             <Button
               type="submit"
-              //   || !touched.email || !touched.password
-              disabled={
-                isSubmitting ||
-                !values.email ||
-                !values.name ||
-                !values.password ||
-                !isValid
-              }
+              disabled={isSubmitting}
               loading={isSubmitting}
             >
               Register

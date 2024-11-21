@@ -8,6 +8,7 @@ import Button from '../../lib/Button';
 import { NewFlightSchema } from '../../utils/validationSchema';
 import { createFlight } from '../../services/flightServices';
 import { useQueryClient } from '@tanstack/react-query';
+import styles from './flights.module.css';
 
 const NewFlight = () => {
   const [responseError, setResponseError] = useState('');
@@ -15,7 +16,7 @@ const NewFlight = () => {
   const queryClient = useQueryClient();
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         {responseError && <Alert>{responseError}</Alert>}
         <Formik

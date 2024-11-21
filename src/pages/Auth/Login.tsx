@@ -11,6 +11,7 @@ import { setBulkItemsInLocalStorage } from '../../utils/localStorageOperations';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth';
 import actionTypes from '../../context/auth/actionTypes';
+import styles from './auth.module.css';
 
 const Login = () => {
   const [responseError, setResponseError] = useState('');
@@ -18,7 +19,7 @@ const Login = () => {
   const { dispatch } = useAuth();
 
   return (
-    <div>
+    <div className={styles.authContainer} data-testid="login-container">
       {responseError && <Alert>{responseError}</Alert>}
       <Formik
         initialValues={{ email: '', password: '' }}
@@ -57,7 +58,7 @@ const Login = () => {
           }
         }}
       >
-        {({ values, errors, touched, isSubmitting, handleChange, isValid }) => (
+        {({ values, errors, touched, isSubmitting, handleChange }) => (
           <Form>
             <TextInput
               id="email"
@@ -81,9 +82,7 @@ const Login = () => {
             />
             <Button
               type="submit"
-              disabled={
-                isSubmitting || !values.email || !values.password || !isValid
-              }
+              disabled={isSubmitting}
               loading={isSubmitting}
             >
               Login
@@ -91,7 +90,7 @@ const Login = () => {
           </Form>
         )}
       </Formik>
-      <p>
+      <p className={styles.registerText}>
         Don't have an account? <Link to="/auth/register">Register</Link>
       </p>
     </div>

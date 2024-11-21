@@ -11,6 +11,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, loading, ghost, ...props }, ref) => (
     <button
       type="button"
+      role="button"
       ref={ref}
       {...props}
       className={`${styles.button} ${ghost ? styles.ghostButton : ''}`}

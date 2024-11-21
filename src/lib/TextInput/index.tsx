@@ -17,7 +17,11 @@ const TextInput = ({
     <div className={styles.textInputContainer}>
       {label && <label htmlFor={id}>{label}</label>}
       <input type={type} id={id} {...props} />
-      {error && <div className={styles.error}>{error}</div>}
+      {error && (
+        <div role="alert" className={styles.error}>
+          {error}
+        </div>
+      )}
     </div>
   );
 };

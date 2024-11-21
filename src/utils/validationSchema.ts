@@ -1,7 +1,7 @@
 import { object, string, ref, number, date } from 'yup';
 
 export const LoginSchema = object().shape({
-  email: string().email().required('Email is required'),
+  email: string().email('Email must be valid').required('Email is required'),
   password: string()
     .min(2, 'Password too short!')
     .required('Password is required'),
@@ -9,13 +9,12 @@ export const LoginSchema = object().shape({
 
 export const NewFlightSchema = object().shape({
   code: string()
-    .matches(/[a-zA-Z]{6}/)
-    .min(6, 'Code must be 6 characters')
-    .max(6, 'Code must be 6 characters')
+    .matches(/[a-zA-Z]{6}/, 'Code must be exactly 6 letters')
+    .length(6)
     .required('Code is required'),
   capacity: number()
-    .min(1, 'Capacity should be between 1 and 50')
-    .max(50, 'Capacity should be between 1 and 50')
+    .min(1, 'Capacity should be between 1 and 99')
+    .max(99, 'Capacity should be between 1 and 99')
     .required('Capacity is required'),
   departureDate: date().required('Departure date must be a valid date!'),
 });

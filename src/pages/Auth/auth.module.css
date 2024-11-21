@@ -1,0 +1,24 @@
+.authContainer {
+  padding: 40px 10px;
+}
+
+.registerText {
+  margin-top: 10px;
+}
+
+@media (min-width: 321px) {
+  .authContainer {
+    padding: 5%;
+  }
+}
+
+@media (min-width: 426px) {
+  .authContainer {
+    padding: 5% 30%;
+  }
+}
+@media (min-width: 900px) {
+  .authContainer {
+    padding: 5% 40%;
+  }
+}

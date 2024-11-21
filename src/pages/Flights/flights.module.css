@@ -3,3 +3,24 @@
   justify-content: center;
   gap: 10px;
 }
+
+.container {
+  padding: 40px 10px;
+}
+
+@media (min-width: 321px) {
+  .container {
+    padding: 5%;
+  }
+}
+
+@media (min-width: 426px) {
+  .container {
+    padding: 5% 30%;
+  }
+}
+@media (min-width: 900px) {
+  .container {
+    padding: 5% 35%;
+  }
+}

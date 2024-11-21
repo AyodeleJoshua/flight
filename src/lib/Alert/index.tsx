@@ -8,8 +8,11 @@ interface AlertProps {
 
 const Alert = ({ children, success }: AlertProps) => {
   return (
-    <div className={`${styles.alert} ${success ? styles.successalert : ''}`}>
-      <span>{children}</span>
+    <div
+      role="alert"
+      className={`${styles.alert} ${success ? styles.successalert : ''}`}
+    >
+      {children}
     </div>
   );
 };
