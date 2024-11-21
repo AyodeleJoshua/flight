@@ -5,6 +5,7 @@ import { Alert, Datepicker } from '../../lib';
 import Button from '../../lib/Button';
 import { NewFlightSchema } from '../../utils/validationSchema';
 import { useState } from 'react';
+import styles from './editFlightForm.module.css';
 
 interface EditFlightFormProps {
   flightDetails: FlightDetailsSuccessfulResponseType;
@@ -24,7 +25,7 @@ const EditFlightForm = ({
   const [isSubmittingEditForm, setIsSubmittingEditForm] = useState(false);
 
   return (
-    <div>
+    <div className={styles.container}>
       {responseError && <Alert>{responseError}</Alert>}
       <Formik
         initialValues={{ code, capacity, departureDate }}
